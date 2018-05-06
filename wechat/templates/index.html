@@ -2,7 +2,10 @@
 //继承base.html
 {% block title %} 欢迎光临我的博客 {% endblock %}
 {% block headmessage %}
+<div class="well">
     <h3 style="font-family:微软雅黑;">本站文章列表</h3>
+
+</div>
 {% endblock%}
 {% block content %}
     {% for post in posts %}
