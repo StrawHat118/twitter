@@ -14,10 +14,11 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-from miniProgram.views import homepage
+from miniProgram.views import homepage,showpost
 
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$',homepage),
-]
+    url(r'^post/(\w+)$',showpost),
+    ]
