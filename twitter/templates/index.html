@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+{% block title %} 我有话对你说 {% endblock %}
+{% block content %}
+<div class="well">
+    {% if tips %}
+    <h4 style="font-family:微软雅黑;">{{ tips }}</h4>
+    {% endif %}
+</div>
+<form name="my form " action="/" method="get">
+    现在的心情:<br>
+    {% for m in moods %}
+    <input type="radio" name="mood" value="{{ m.status }}">{{ m.status }}
+    {% endfor %}<br>
+    心情留言板:
+    <textarea name="message" rows="3" cols="50" ></textarea>
+    <label for="nickname" >您的昵称:</label>
+    <input id="nickname" type="text" name="nickname">
+    <label for="dell_pass">张贴密码:</label>
+    <input id="dell_pass" type="password" name="dell_pass"><br>
+    <input type="submit" value="张贴">
+    <input type="reset" value="清除重填">
+</form>
+
+<div class='row'>
+    <div class='col-md-12'>
+        <div class='panel panel-default'>
+            <div class='panel-heading' align=center>
+            <h3>~~宝宝心里苦，宝宝只在这里说~~</h3>
+    </div>
+        </div></div>
+</div>
+{% for p in posts %}
+<!--<p>-->
+<!--{{p.nickname}}觉得{{ p.mood }}{{ p.message }}{{ p.pub_time }}-->
+<!--</p>-->
+{% cycle "<div class='row'> <div class='col-md-4'>" "<div class='col-md-4'>" "<div class='col-md-4'>" %}
+        <div class='panel panel-primary'>
+            <div class='panel-heading'>【{{ p.nickname }}】觉得{{ p.mood }}</div>
+            <div class='panel-body'>{{ p.message | linebreaks }}</div>
+            <div class='panel-footer' align='right'>
+                <i><small>{{ p.pub_time }}</small></i>
+                <span class="glyphicon glyphicon-trash" onclick='go_delete({{p.id}})'></span>
+            </div>
+        </div>
+    </div>
+    {% cycle "" "" "</div>"%}
+{% endfor %}
+
+
+<!--<script>-->
+<!--function go_delete(id){-->
+    <!--var user_pass = document.getElementById('user_pass').value;-->
+    <!--if (user_pass != "") {-->
+        <!--var usr = '/' + id + '/' + user_pass;-->
+        <!--window.location = usr;-->
+    <!--}-->
+<!--}-->
+<!--</script>-->
+
+<!--{% for p in posts %}-->
+    <!--{% cycle "<div class='row'> <div class='col-md-4'>" "<div class='col-md-4'>" "<div class='col-md-4'>" %}-->
+        <!--<div class='panel panel-primary'>-->
+            <!--<div class='panel-heading'>【{{ p.nickname }}】觉得{{ p.mood }}</div>-->
+            <!--<div class='panel-body'>{{ p.message | linebreaks }}</div>-->
+            <!--<div class='panel-footer' align='right'>-->
+                <!--<i><small>{{ p.pub_time }}</small></i>-->
+                <!--<span class="glyphicon glyphicon-trash" onclick='go_delete({{p.id}})'></span>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--{% cycle "" "" "</div>"%}-->
+<!--{% endfor %}-->
+    <!--<label for="user_id">Your_ID:</label>-->
+    <!--<input id="user_id" type="text" name="user_id">-->
+    <!--<label for="user_pass">Your Password:</label>-->
+    <!--<input id="user_pass" type="password" name="user_pass">-->
+    <!--<input type="submit" value="登录">-->
+    <!--<input type="reset" value="清除重填">-->
+    <!--<label for="byear">出生年份:</label>-->
+    <!--<select name="byear">-->
+        <!--{%  for year in years%}-->
+        <!--<option value="{{ year }}">{{ year }}</option>-->
+        <!--{% endfor %}-->
+    <!--</select>-->
+    <!--<input type="checkbox" name="fcolor" value="Green"> Green-->
+    <!--<input type="checkbox" name="fcolor" value="Red">Red-->
+    <!--<input type="checkbox" name="fcolor" value="Bule"><br>-->
+    <!--<label>个人ID:-->
+        <!--{% for name in names %}-->
+        <!--{{name}}-->
+        <!--{% endfor %}-->
+
+    <!--</label></br><br>-->
+
+    <!--{% for c in urfcolor %}-->
+        <!--{{ c }}-->
+    <!--{% empty %}-->
+    <!--没有选择任何颜色-->
+    <!--{% endfor %}-->
+    <!--</br>-->
+
+
+<!--</form>-->
+
+{% endblock %}

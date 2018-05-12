@@ -1,5 +1,6 @@
 #Python
 *.pyc
 *.pyo
+*.xml
 #Java
 *.class
