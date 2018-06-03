@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+{% block title %} 我是T800{% endblock %}
+{% block content %}
+<div class='container'>
+<div class='row'>
+    <div class='col-md-12'>
+        <div class='panel panel-default'>
+            <div class='panel-heading' align=center>
+            <h3>~~修改服务器时间以及投资计数器~~</h3>
+    </div>
+</div>
+<form name="my form"action="/testChangeTime" method="get">
+    <label for="day_change">修改日期:</label>
+    <input id="day_change" type="text" name="day_change" value="20180524">
+    <label for="hour_change">具体修改时间:</label>
+    <input id="hour_change" type="text" name="hour_change" value="15:45:30">
+    <label for="num" >修改订单编号:</label>
+    <input id="num" type="text" name="num" value="1000">
+    <input type="submit" value="提交修改">
+    <input type="reset" value="清除重填">
+
+
+</form>
+        <table border="1">
+            <th>修改日期</th>
+            <th>具体修改时间</th>
+            <th>修改订单编号</th>
+            {% for c in changeTimes %}
+            <tr>
+                <td>{{ c.day_change }}</td>
+                <td>{{ c.hour_change }}</td>
+                <td>{{ c.num }}</td>
+            </tr>
+
+
+
+        {% endfor %}
+            </table>
+{% endblock %}

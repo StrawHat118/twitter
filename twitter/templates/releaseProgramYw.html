@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+{% block title %}T800{% endblock %}
+{% block content %}
+<div class='container'>
+<div class='row'>
+    <div class='col-md-12'>
+        <div class='panel panel-default'>
+            <div class='panel-heading' align=center>
+            <h3>~~运维环境项目发布~~</h3>
+    </div>
+</div>
+    <form name="my form" action="/releaseProgramYw" method="get">
+        <label for="config_num" >配置编号:</label>
+        <input id="config_num" name="config_num" value="0">
+        <label for="end_time">截标时间：</label>
+        <input id="end_time" type="text" name="end_time" value="2">
+        <label for="contract_quantity">合同数量：</label>
+        <input id="contract_quantity" name="contract_quantity" value="2">
+        <label for="config_type">配置类型：</label>
+        <select name="config_type">
+            <option value="2">集合标</option>
+            <option value="1">普通标</option>
+        </select>
+
+        <input type="submit" value="提交" >
+
+    </form>
+
+
+{% endblock %}

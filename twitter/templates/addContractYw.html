@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+{% extends "base.html"%}
+{% block title %}T800{% endblock %}
+{% block content %}
+<div class='container'>
+<div class='row'>
+    <div class='col-md-12'>
+        <div class='panel panel-default'>
+            <div class='panel-heading' align=center>
+            <h3>~~运维环境合同添加~~</h3>
+    </div>
+</div>
+<!--窗体        -->
+ <form name="my form" action="/addContractYw" method="get">
+
+     <label for="contract_num">合同编号:</label>
+     <input id="contract_num" type="text" name="contract_num" value="201805270">
+     <label for="deadline">期限(月):</label>
+     <input id="deadline" type="text" name="deadline" value="12">
+     <label for="amount" >金额:</label>
+     <input id="amount" type="text" name="amount" value="10000">
+     <label for="rate" >利率:</label>
+     <input id="rate" type="text" name="rate" value="8">
+     <label for="times">合同次数:</label>
+     <input id="times" type="text" name="time" value="3">
+     <br>
+     <label for="customer_num">客户编号:</label>
+     <input id="customer_num" type="text" name="customer_num" value="0">
+     <label for="project_type">项目类型:</label>
+     <select name="project_type">
+         <option value="2">投融宝</option>
+         <option value="3">e商贷</option>
+         <option value="4">车抵宝</option>
+         <option value="5">工薪贷</option>
+         <option value="6">净代宝</option>
+         <option value="7">e商贷</option>
+         <option value="8">兴融贷</option>
+         <option value="9">分期购</option>
+         <option value="10">联融宝</option>
+         <option value="11">数码宝</option>
+         <option value="12">金鸡贷</option>
+         <option value="13">惠农贷</option>
+         <option value="17">经赢贷</option>
+     </select>
+     <input type="submit" value="提交">
+     <!--<input type="reset" value="重置">-->
+ </form>
+        <table border="1">
+            <th>合同编号</th>
+            <th>合同期限</th>
+            <th>合同利息</th>
+            <th>合同金额</th>
+
+        {% for c in contractsYw %}
+            <tr>
+                <td>{{ c.contract_num }}</td>
+                <td>{{  c.deadline }}</td>
+                <td>{{ c.rate }}</td>
+                <td>{{ c.amount }}</td>
+            </tr>
+
+        {% endfor %}
+            </table>
+
+
+{% endblock %}
+
+
+

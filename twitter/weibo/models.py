@@ -23,3 +23,32 @@ class Post(models.Model):
 
     def __unicode__(self):
         return self.message
+
+
+class ChangeTime(models.Model):
+    #修改天数
+    day_change  = models.CharField(max_length=10)
+    #修改小时
+    hour_change = models.CharField(max_length=10)
+    #订单编号
+    num         = models.CharField(max_length=10)
+
+class Contract(models.Model):
+    #合同编号
+    contract_num = models.CharField(max_length=10)
+    #合同期限
+    deadline     = models.CharField(max_length=10)
+    #合同金额
+    amount       = models.CharField(max_length=10)
+    #合同利率
+    rate         = models.CharField(max_length=10)
+
+class ContractYw(models.Model):
+    #合同编号
+    contract_num = models.CharField(max_length=10)
+    #合同期限
+    deadline     = models.CharField(max_length=10)
+    #合同金额
+    amount       = models.CharField(max_length=10)
+    #合同利率
+    rate         = models.CharField(max_length=10)

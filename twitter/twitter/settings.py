@@ -1,3 +1,4 @@
+#coding=utf-8
 """
 Django settings for twitter project.
 
@@ -104,3 +105,5 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
+#chromedriver的绝对路径
+executable_path=r"D:\tools\webdrivers\chromedriver.exe"

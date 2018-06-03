@@ -20,4 +20,9 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$',views.index),
     url(r'^post/$',views.posting),
+    url(r'^testChangeTime/$',views.changeTime),
+    url(r'^addContractTest/$',views.add_contract_test_v),
+    url(r'^addContractYw/$',views.add_contract_yw_v),
+    url(r'^releaseProgramTest/$',views.releaseProgrsmTestV),
+    url(r'^releaseProgramYw/$',views.releaseProgramYwV),
 ]
