@@ -25,4 +25,5 @@ urlpatterns = [
     url(r'^addContractYw/$',views.add_contract_yw_v),
     url(r'^releaseProgramTest/$',views.releaseProgrsmTestV),
     url(r'^releaseProgramYw/$',views.releaseProgramYwV),
+    url(r'^interfaceTest/$' ,views.interfaceTest),
 ]

@@ -69,6 +69,8 @@ class AddContract():
             '#addForm > table:nth-child(1) > tbody > tr:nth-child(4) > td:nth-child(4) > input').send_keys("2020-04-05")
         # 输入年化利率
         self.driver.find_element_by_css_selector('#rate').send_keys(rate)
+        self.driver.find_element_by_css_selector('#repayWay > span > span').click()
+        self.driver.find_element_by_css_selector('body > div:nth-child(16) > div > div:nth-child(2)').click()
         # 点击保存
         self.driver.find_element_by_css_selector('#doSave > span > span').click()
     def close_browser(self):

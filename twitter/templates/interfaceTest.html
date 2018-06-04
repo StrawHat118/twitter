@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}T800 {% endblock %}
+{% block content%}
+<div class='container'>
+<div class='row'>
+    <div class='col-md-12'>
+        <div class='panel panel-default'>
+            <div class='panel-heading' align=center>
+            <h3>~~测试环境接口测试~~</h3>
+    </div>
+</div>
+        <form name="my form" action="/interfaceTest" method="get">
+            <label for="path">文档路径</label>
+            <input id="path" name="path" type="text" value="D:\codes\interfaceTest.xlsx">
+            <label for="sheet">工作表</label>
+            <input id="sheet" name="sheet" type="text" value="Sheet2">
+            <input type="submit" value="提交">
+        </form>
+
+
+
+{% endblock %}

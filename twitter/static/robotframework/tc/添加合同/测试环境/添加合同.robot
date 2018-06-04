@@ -1,25 +1,15 @@
 *** Settings ***
 Library     Selenium2Library
 Library     pylib.AddContract
-#Library     pylib.WebOpAdmin
-Resource    rclib/rc.robot
 
-Variables    pylib/cfg.py
 
 *** Test Cases ***
-添加合同
-#
+添加合同--001
+    #打开浏览器
     openbrowsers
+    #登录
     login               https://escrowcrm1.tourongjia.com/
-#    through_menu_test
-
-#    SetupWebTests
-#    login
-#    through_menu_test
-#     open browser        ${loginUrlTest}     chrome
-#     set selenium implicit wait              10
-     CrmLogin
-#     through_menu_test
-#    login_test
-#    through_menu_test
-
+    #进入二级菜单
+    through_menu_test
+    #添加合同
+    add_contract_test       20180604026     3   10000   9      0     10

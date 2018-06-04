@@ -6,20 +6,20 @@ class AddContract():
     # ROBOT_LIBRARY_SCOPE = 'GLOBAL'
     def openbrowsers(self,driver_type='chrome'):
         if  driver_type == 'chrome':
-            self.browser = webdriver.Chrome()
-            self.browser.implicitly_wait(10)
+            self.driver = webdriver.Chrome()
+            self.driver.implicitly_wait(10)
 
     def login(self,url):
-        self.browser.get(url)
-        # self.browser.find_element_by_css_selector('#userNo').send_keys("zhangchong")
-        # self.browser.find_element_by_css_selector('#pwd').send_keys("888888x")
-        # self.browser.find_element_by_css_selector('#login_btn').click()
+        self.driver.get(url)
+        self.driver.find_element_by_css_selector('#userNo').send_keys("zhangchong")
+        self.driver.find_element_by_css_selector('#pwd').send_keys("888888x")
+        self.driver.find_element_by_css_selector('#login_btn').click()
     def through_menu_test(self):
-        self.browser.find_element_by_css_selector(
+        self.driver.find_element_by_css_selector(
             '#menuGroup > div:nth-child(3) > div.panel-header.accordion-header > div.panel-tool > div').click()
-        self.browser.find_element_by_css_selector('#menu185 > li:nth-child(1) > div > span.tree-title').click()
+        self.driver.find_element_by_css_selector('#menu185 > li:nth-child(1) > div > span.tree-title').click()
         # 进入frame
-        self.browser.switch_to.frame('work_frame')
+        self.driver.switch_to.frame('work_frame')
     def add_contract_test(self,contract_num ,deadline ,amount ,rate ,customer_num ,project_type ):
         customer_num_css = '#cb_personalDataTable_{}'.format(customer_num)
         project_type_css = 'body > div:nth-child(15) > div > div:nth-child({project_type})'.format(project_type=project_type)
@@ -140,3 +140,4 @@ class AddContract():
         self.driver.find_element_by_css_selector('#rate').send_keys(rate)
         # 点击保存
         self.driver.find_element_by_css_selector('#doSave > span > span').click()
+
